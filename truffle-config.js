@@ -23,6 +23,11 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+// const infuraKey = "fj4jll3k.....";
+//
+// const fs = require('fs');
+const teamsMnemonic = "else pride farm jungle damage rib garment reduce electric route fold crucial";
 
 module.exports = {
   /**
@@ -36,6 +41,13 @@ module.exports = {
    */
 
   networks: {
+
+    teams: {
+      provider: function() {
+        return new HDWalletProvider(teamsMnemonic, "https://sandbox.truffleteams.com/a4ab3f77-ad9a-404d-ae1b-98630c623763", 0, 10, false);
+      },
+      network_id: 1
+    }
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
